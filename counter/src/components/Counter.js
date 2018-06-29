@@ -19,6 +19,7 @@ class Counter extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { value, onCong, onTru, onNhan, onChia } = this.props
     return (
       <p>

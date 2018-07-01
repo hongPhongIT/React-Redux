@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = (todo, onClick) => {
-    console.log(onClick)
+const Todo = (props) => {
+    console.log(props)
+    const {id, name, username, email, onClick} = props
     return (
-        <ul>
-            <li>{todo.id}</li>
-            <li>{todo.name}</li>
-            <li>{todo.username}</li>
-            <li>{todo.email}</li>
-            <li onClick={onClick}>delete</li>
+        <ul key={id}> 
+            <li>{id}</li>
+            <li>{name}</li>
+            <li>{username}</li>
+            <li>{email}</li>
+            <button onClick={() => onClick(id)}>delete</button>
         </ul>
     )
 }
@@ -19,6 +20,7 @@ Todo.propTypes = {
     name: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
 }
 
 export default Todo

@@ -2,23 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = (todos) => {
-    // const {todos, destroyTodo} = this.todos
+const TodoList = (props) => {
+    const {users , destroyTodo } = props
     return (
         <div>
-           
-            {todos.users.map(todo =>
-            <div key={todo.id} >
-             {/* {console.log(todos.destroyTodo(todo.id))} */}
-                <Todo {...todo} onClick={() =>todos.destroyTodo(todo.id)}/>
-            </div>
+             {console.log(users)}
+            {users.map(todo =>
+                    <Todo key={todo.id} {...todo} onClick={() => destroyTodo(todo.id)}/>
             )}
         </div>
     )
 }
 
 TodoList.propTypes = {
-    todos: PropTypes.arrayOf(
+    props: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
         })

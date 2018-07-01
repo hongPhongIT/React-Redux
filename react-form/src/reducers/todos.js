@@ -16,11 +16,9 @@ const todos = (state = [], action) => {
         // case 'CHANGE_USER_NAME':
         //     return action.username
         case 'DESTROY_TODO':
-            return state.map(todo =>
-                (todo.id === action.id)
-                  ? {...state, state: state.splice(action.id, 1)}
-                  : state
-              )
+        console.log('action.id=', action.id)
+            console.log('[state.splice(action.id, 1)]:',[...state, state.splice(action.id, 1)])
+            return 
         default:
             return state
     }
